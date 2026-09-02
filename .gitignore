@@ -1,5 +1,37 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebooks
 .ipynb_checkpoints/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment Variables
 .env
+
+# Large Data Archives
+*.zip
+*.tar.gz
+*.rar
+
+# External Course Reference Material (kept locally for personal study)
+stat451-machine-learning-fs20-master/

@@ -51,7 +51,7 @@ class Perceptron:
         self.n_iter = n_iter
         self.random_state = random_state
 
-    def fit(self,X,y):
+    def fit(self, X, y):
         """
         Parameters : (Input Values)
         X: this is the data set passed in
@@ -63,7 +63,7 @@ class Perceptron:
         y: This is the correct prediction that should have been made by the perceptron after being trained (basically y^)
          
         """
-        rgen = np.random.randomState(self.random_state)
+        rgen = np.random.RandomState(self.random_state)
         self.w_ = rgen.normal(loc = 0.0, scale = 0.01, size = X.shape[1]) # Draw random samples from a normal (Gaussian) distribution.
         """
         loc -> Mean (Simply the mid point of the data curve)
@@ -89,23 +89,21 @@ class Perceptron:
             Then it does the same for the 2nd elements, the 3rd elements, and so on.
             """
 
-            for xi, target in zip(X,y):
+            for xi, target in zip(X, y):
                 update = self.eta * (target - self.predict(xi))
-                self.w_ += update *xi
+                self.w_ += update * xi
                 self.b_ += update
 
-                errors_ += int(update !=0.0)
-            self.errors_.append(errors)
+                errors_ += int(update != 0.0)
+            self.errors_.append(errors_)
         return self
 
     def net_input(self, X):
         """Returns the net input"""
-        ni = np.dot(X,self.w_) + self.b_
-
+        ni = np.dot(X, self.w_) + self.b_
         return ni
 
     def predict(self, X):
         """Returns class label after unit step"""
-
-        return np.where(self.net_input(X) >= 0.0,1,0)
+        return np.where(self.net_input(X) >= 0.0, 1, 0)
     # if self.net_input(x) >= 0.0, then return 1 else return 0
